@@ -6,15 +6,14 @@
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:46:21 by anfichet          #+#    #+#             */
-/*   Updated: 2025/01/25 19:00:35 by tarini           ###   ########.fr       */
+/*   Updated: 2025/01/25 19:38:42 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRLEN_TESTS_H
 # define STRLEN_TESTS_H
 
-#include <string.h>
-
+# include <string.h>
 
 int	strlen_launcher(void);
 int	ft_strlen_basic_test(void);
