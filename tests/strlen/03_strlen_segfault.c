@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   03_strlen_segfault.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 19:14:19 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 20:35:08 by tarini           ###   ########.fr       */
+/*   Created: 2025/01/25 14:17:15 by tarini            #+#    #+#             */
+/*   Updated: 2025/01/25 20:38:13 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "incs/strlen_tests.h"
+#include <stdio.h>
 
-int	main(void)
+int	ft_strlen_segfault(char *str)
 {
-	strlen_launcher();
+	int	i;
+
+	i = 0;
+	str = NULL;
+	while (str[i])
+		i++;
+	return (i);
 }

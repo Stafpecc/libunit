@@ -6,11 +6,11 @@
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 19:29:03 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 19:38:19 by tarini           ###   ########.fr       */
+/*   Updated: 2025/01/25 20:28:26 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
+#include "../incs/libunit.h"
 #include <unistd.h>
 #include <sys/wait.h>
 
@@ -40,7 +40,8 @@ void launch_test(t_unit_test **test)
 		if (pid == -1)
 		{
 			write(2, "Fork failed\n", 12);
-			//exit(EXIT_FAILURE);
+			free_list(tmp);
+			exit(EXIT_FAILURE);
 		}
 		if (pid == 0) // on est dans le processus fils
 		{
@@ -58,16 +59,16 @@ void launch_test(t_unit_test **test)
 			if (WIFEXITED(status))
 			{
 				if (WEXITSTATUS(status) == 0)
-					printf("%s : %s : [OK]\n", tmp->function, tmp->name);
+					ft_printf("%s : %s : [OK]\n", tmp->function, tmp->name);
 				else if (WEXITSTATUS(status) == 1)
-					printf("%s : %s : [KO]\n", tmp->function, tmp->name);
+					ft_printf("%s : %s : [KO]\n", tmp->function, tmp->name);
 			}
 			else if (WIFSIGNALED(status))
 			{
 				if (WTERMSIG(status) == 11)
-					printf("%s : %s : [SIGSEV]\n", tmp->function, tmp->name);
+					ft_printf("%s : %s : [SIGSEV]\n", tmp->function, tmp->name);
 				else if (WTERMSIG(status) == 7)
-					printf("%s : %s : [SIGBUS]\n", tmp->function, tmp->name);
+					ft_printf("%s : %s : [SIGBUS]\n", tmp->function, tmp->name);
 			}
 		}
 	}

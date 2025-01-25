@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strjoin_bus.c                                      :+:      :+:    :+:   */
+/*   04_strlen_bus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: icasalfichet <icasalfichet@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 14:20:51 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 14:43:02 by icasal         ###   ########lyon.fr   */
+/*   Updated: 2025/01/25 20:31:07 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #if defined(__GNUC__)
 # if defined(__i386__)
 
-size_t	ft_strlen(char const *str)
+size_t	ft_strlen_buserror(char const *str)
 {
 	size_t	ret;
 	char	*cptr;
@@ -33,7 +33,7 @@ size_t	ft_strlen(char const *str)
 }
 # elif defined(__x86_64__)
 
-size_t	ft_strlen(char const *str)
+size_t	ft_strlen_buserror(char const *str)
 {
 	size_t	ret;
 	char	*cptr;
