@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   05_int_min_test.c                                  :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 15:24:31 by anfichet          #+#    #+#             */
-/*   Updated: 2025/01/25 16:33:55 by tarini           ###   ########.fr       */
+/*   Created: 2025/01/25 17:37:04 by tarini            #+#    #+#             */
+/*   Updated: 2025/01/25 17:38:10 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi_only_string_test(void)
+#include "../includes/libft.h"
+
+int	my_strcmp(const char *str1, const char *str2)
 {
-	if (ft_atoi("  -2147483648iuyi") == -2147483648)
-		return (0);
-	else
-		return (-1);
+	while (*str1 && (*str1 == *str2))
+	{
+		str1++;
+		str2++;
+	}
+	return (*(unsigned char *)str1 - *(unsigned char *)str2);
 }

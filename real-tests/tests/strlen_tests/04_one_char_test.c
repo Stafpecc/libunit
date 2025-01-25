@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libunit.h                                          :+:      :+:    :+:   */
+/*   04_one_char_test.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 15:57:41 by anfichet          #+#    #+#             */
-/*   Updated: 2025/01/25 19:12:41 by tarini           ###   ########.fr       */
+/*   Created: 2025/01/25 14:52:14 by anfichet          #+#    #+#             */
+/*   Updated: 2025/01/25 18:51:56 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBUNIT_H
-# define LIBUNIT_H
+#include <string.h>
 
-#include <stdlib.h>
-
-typedef struct s_unit_test
+int	ft_strlen_one_char_test(void)
 {
-	char				*name;
-	int					(*f)(void);
-	struct s_unit_test	*next;
-}	t_unit_test;
-
-void	launch_test(t_unit_test **test);
-void	load_test(t_unit_test **test, char *name, int (*f)(void));
-
-#endif
+	if (strlen("A") == 1)
+		return (0);
+	else
+		return (-1);
+}

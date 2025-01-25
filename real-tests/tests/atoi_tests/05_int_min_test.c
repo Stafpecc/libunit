@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   04_empty_test.c                                    :+:      :+:    :+:   */
+/*   05_int_min_test.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 15:04:11 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 16:33:55 by tarini           ###   ########.fr       */
+/*   Created: 2025/01/25 15:24:31 by anfichet          #+#    #+#             */
+/*   Updated: 2025/01/25 19:12:41 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../framework/incs/libft.h"
-
-int	ft_strdup_null_test(void)
+int	ft_atoi_int_min_test(void)
 {
-	char	*dest;
-
-	dest = ft_strdup("");
-	if (dest && ft_strcmp(dest, "") == 0)
-	{
-		free(dest);
+	if (ft_atoi("  -2147483648iuyi") == -2147483648)
 		return (0);
-	}
 	else
-	{
-		free(dest);
 		return (-1);
-	}
 }

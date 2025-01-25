@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   05_one_char.c                                      :+:      :+:    :+:   */
+/*   atoi_tests.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 15:04:17 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 16:33:55 by tarini           ###   ########.fr       */
+/*   Created: 2025/01/25 18:53:14 by tarini            #+#    #+#             */
+/*   Updated: 2025/01/25 19:12:41 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../framework/incs/libft.h"
+#ifndef ATOI_TESTS_H
+# define ATOI_TESTS_H
 
-int	ft_strdup_null_test(void)
-{
-	char	*dest;
+#include <string.h>
 
-	dest = ft_strdup("0");
-	if (dest && ft_strcmp(dest, "0") == 0)
-	{
-		free(dest);
-		return (0);
-	}
-	else
-	{
-		free(dest);
-		return (-1);
-	}
-}
+
+int	atoi_launcher(void);
+int	ft_atoi_basic_test(void);
+int	ft_atoi_negative_nb_test(void);
+int	ft_atoi_multiple_sign_test(void);
+int	ft_atoi_only_string_test(void);
+int	ft_atoi_int_min_str_test(void);
+
+#endif

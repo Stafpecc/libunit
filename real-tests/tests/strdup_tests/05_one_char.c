@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libunit.h                                          :+:      :+:    :+:   */
+/*   05_one_char.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 15:57:41 by anfichet          #+#    #+#             */
-/*   Updated: 2025/01/25 19:12:41 by tarini           ###   ########.fr       */
+/*   Created: 2025/01/25 15:04:17 by tarini            #+#    #+#             */
+/*   Updated: 2025/01/25 19:12:40 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBUNIT_H
-# define LIBUNIT_H
-
-#include <stdlib.h>
-
-typedef struct s_unit_test
+int	ft_strdup_one_char_test(void)
 {
-	char				*name;
-	int					(*f)(void);
-	struct s_unit_test	*next;
-}	t_unit_test;
+	char	*dest;
 
-void	launch_test(t_unit_test **test);
-void	load_test(t_unit_test **test, char *name, int (*f)(void));
-
-#endif
+	dest = ft_strdup("0");
+	if (dest && ft_strcmp(dest, "0") == 0)
+	{
+		free(dest);
+		return (0);
+	}
+	else
+	{
+		free(dest);
+		return (-1);
+	}
+}

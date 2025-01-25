@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   04_empty_test.c                                    :+:      :+:    :+:   */
+/*   strjoin_tests.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 15:04:11 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 16:33:55 by tarini           ###   ########.fr       */
+/*   Created: 2025/01/25 19:02:23 by tarini            #+#    #+#             */
+/*   Updated: 2025/01/25 19:12:41 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../framework/incs/libft.h"
+#ifndef STRJOIN_TESTS_H
+# define STRJOIN_TESTS_H
 
-int	ft_strjoin_empty_test(void)
-{
-	char	*result;
+#include <string.h>
 
-	result = ft_strjoin("", "");
-	if (result && ft_strcmp(result, "") == 0)
-	{
-		free(result);
-		return (0);
-	}
-	else
-	{
-		free(result);
-		return (-1);
-	}
-}
+int	strjoin_launcher(void);
+int	ft_strjoin_basic_test(void);
+int	ft_strjoin_empty_test(void);
+int	ft_strjoin_bigger_test(void);
+int	ft_strjoin_one_char_test(void);
+int	ft_strjoin_null_test(void);
+
+#endif

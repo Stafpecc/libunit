@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_null_test.c                                     :+:      :+:    :+:   */
+/*   01_basic_test.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 14:52:09 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 16:05:48 by tarini           ###   ########.fr       */
+/*   Created: 2025/01/25 15:26:13 by tarini            #+#    #+#             */
+/*   Updated: 2025/01/25 17:39:59 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../framework/incs/libft.h"
-
-int	ft_strjoin_null_test(void)
+int	ft_strdup_basic_test(void)
 {
-	char	*result;
+	char	*dest;
 
-	result = ft_strjoin(NULL, NULL);
-	if (result && ft_strcmp(result, "(null)") == 0)
+	dest = ft_strdup("coucou");
+	if (dest && ft_strcmp(dest, "coucou") == 0)
 	{
-		free(result);
+		free(dest);
 		return (0);
 	}
 	else
 	{
-		free(result);
+		free(dest);
 		return (-1);
 	}
 }

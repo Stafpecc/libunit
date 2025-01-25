@@ -1,6 +1,5 @@
 .SILENT:
 
-
 .PHONY: all clean fclean re help valgrind # test docker-build docker-run docker-clean
 
 CFILES = isdigit                 \
@@ -29,6 +28,7 @@ CFILES = isdigit                 \
 	split                        \
 	substr                       \
 	strjoin                      \
+	strcmp 						 \
 	strtrim                      \
 	itoa                         \
 	putchar_fd                   \
@@ -79,38 +79,38 @@ all: $(NAME)
 
 
 $(NAME): $(OBJS)
-	echo "$(PURPLE)Compilation of libft in progress...$(RESET)"
+#	echo "$(PURPLE)Compilation of libft in progress...$(RESET)"
 		$(AR) $@ $^
-	echo "$(GREEN)Compilation of $(NAME) completed successfully$(RESET)"
+#	echo "$(GREEN)Compilation of $(NAME) completed successfully$(RESET)"
 
-	echo "$(GREEN)"
-	echo "┌───────────────────────────────────────────────────────────┐"
-	echo "│      Compilation finished successfully! ᕕ(⌐■_■)ᕗ ♪♬       │"
-	echo "└───────────────────────────────────────────────────────────┘"
+#	echo "$(GREEN)"
+#	echo "┌───────────────────────────────────────────────────────────┐"
+#	echo "│      Compilation finished successfully! ᕕ(⌐■_■)ᕗ ♪♬       │"
+#	echo "└───────────────────────────────────────────────────────────┘"
 
-	echo "                      ☆  *    .      ☆"
-	echo "                        ∧＿∧   ∩    * ☆"
-	echo "                 *  ☆ ( ・∀・)/ ."
-	echo "                  .  ⊂      ノ* ☆"
-	echo "                ☆ * (つ   ノ  .☆"
-	echo "                      (ノ"
+#	echo "                      ☆  *    .      ☆"
+#	echo "                        ∧＿∧   ∩    * ☆"
+#	echo "                 *  ☆ ( ・∀・)/ ."
+#	echo "                  .  ⊂      ノ* ☆"
+#	echo "                ☆ * (つ   ノ  .☆"
+#	echo "                      (ノ"
 
-	echo "$(RESET)"
+#	echo "$(RESET)"
 
 
 $(OBJS_DIR):
-	echo "$(PURPLE)Creating directory $(OBJS_DIR)...$(RESET)"
+#	echo "$(PURPLE)Creating directory $(OBJS_DIR)...$(RESET)"
 
 		mkdir -p $(OBJS_DIR)
 
-	echo "$(GREEN)Directory $(OBJS_DIR) created successfully!$(RESET)"
+#	echo "$(GREEN)Directory $(OBJS_DIR) created successfully!$(RESET)"
 
 $(OBJS_DIR)%.o: $(CFILES_DIR)%.c $(INCLUDE_DIR)$(INCLUDE) | $(OBJS_DIR)
-	echo "$(PURPLE)Compiling $<...$(RESET)"
+#	echo "$(PURPLE)Compiling $<...$(RESET)"
 
 		$(CC) $(CFLAGS) -c $< -o $@
 
-	echo "$(GREEN)$< completed successfully!$(RESET)"
+#	echo "$(GREEN)$< completed successfully!$(RESET)"
 
 
 valgrind: $(NAME) main.c
@@ -123,7 +123,7 @@ valgrind: $(NAME) main.c
 	elif [ "$(FLAGS)" -eq 2 ]; then \
 		valgrind --track-origins=yes ./exec; \
 	elif [ "$(FLAGS)" -eq 3 ]; then \
-		valgrind --tool=massif ./exec; \
+		valgrind --tool=memcheck ./exec; \
 	else \
 		echo "$(RED)Invalid FLAGS value. Use 1, 2, or 3.$(RESET)"; \
 	fi; \
@@ -133,31 +133,31 @@ valgrind: $(NAME) main.c
 
 
 clean:
-	echo "$(RED)Deleting object files...$(RESET)"
+#	echo "$(RED)Deleting object files...$(RESET)"
 
 		$(RM_DIR) $(OBJS_DIR)
 
-	echo "$(GREEN)Deleting object files completed successfully!$(RESET)"
+#	echo "$(GREEN)Deleting object files completed successfully!$(RESET)"
 
 
 fclean: clean
-	echo "$(RED)Deleting $(NAME)...$(RESET)"
+#	echo "$(RED)Deleting $(NAME)...$(RESET)"
 
 		$(RM) $(NAME)
 
-	echo "$(GREEN)Deleting $(NAME) completed successfully!$(RESET)"
+#	echo "$(GREEN)Deleting $(NAME) completed successfully!$(RESET)"
 	
-	echo "$(RED)"
-	echo "┌──────────────────────────────────────────────────────────┐"
-	echo "│      Deletion finished successfully! ( ◔ ω◔) ノシ        │"
-	echo "└──────────────────────────────────────────────────────────┘"
+#	echo "$(RED)"
+#	echo "┌──────────────────────────────────────────────────────────┐"
+#	echo "│      Deletion finished successfully! ( ◔ ω◔) ノシ        │"
+#	echo "└──────────────────────────────────────────────────────────┘"
 	
-	echo "                          ╱|、"
-	echo "                        (˚ˎ 。7"
-	echo "                         |、˜|"
-	echo "                        じしˍ,)ノ"
+#	echo "                          ╱|、"
+#	echo "                        (˚ˎ 。7"
+#	echo "                         |、˜|"
+#	echo "                        じしˍ,)ノ"
 	
-	echo "$(RESET)"
+#	echo "$(RESET)"
 
 
 re : fclean all
@@ -204,7 +204,7 @@ help:
 	echo " "
 	echo "                    .  FLAGS=1 -> Leak check"
 	echo "                    .  FLAGS=2 -> Track origins of errors"
-	echo "                    .  FLAGS=3 -> Massif memory profiler"
+	echo "                    .  FLAGS=3 -> Memcheck, a memory error detector"
 	echo " "
 	echo "  docker-build  - Build a Docker image for the project"
 	echo "  docker-run    - Run the project in a Docker container"

@@ -6,13 +6,11 @@
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 14:53:35 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 16:15:23 by tarini           ###   ########.fr       */
+/*   Updated: 2025/01/25 19:12:41 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../framework/incs/libft.h"
-
-int	ft_strdup_basic_test(void)
+int	ft_strdup_bigger_test(void)
 {
 	char	*dest;
 

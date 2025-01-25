@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_null_test.c                                     :+:      :+:    :+:   */
+/*   strlen_tests.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 14:52:09 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 16:33:55 by tarini           ###   ########.fr       */
+/*   Created: 2025/01/25 17:46:21 by anfichet          #+#    #+#             */
+/*   Updated: 2025/01/25 19:00:35 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../framework/incs/libft.h"
+#ifndef STRLEN_TESTS_H
+# define STRLEN_TESTS_H
 
-int	ft_strdup_null_test(void)
-{
-	char	*dest;
+#include <string.h>
 
-	dest = ft_strdup(NULL);
-	if (dest && ft_strcmp(dest, "(null)") == 0)
-	{
-		free(dest);
-		return (0);
-	}
-	else
-	{
-		free(dest);
-		return (-1);
-	}
-}
+
+int	strlen_launcher(void);
+int	ft_strlen_basic_test(void);
+int	ft_strlen_empty_test(void);
+int	ft_strlen_bigger_str_test(void);
+int	ft_strlen_one_char_test(void);
+int	ft_strlen_null_char_in_str_test(void);
+
+#endif

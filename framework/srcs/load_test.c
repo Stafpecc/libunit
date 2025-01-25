@@ -1,31 +1,31 @@
 
-#include "libunit.h"
-
-//ajoute des tests a la liste chainee
+#include "../incs/libunit.h"
 
 void	load_test(t_unit_test **test, char *name, int (*f)(void))
 {
-	t_unit_test *Cpy = *test;
+	t_unit_test *Cpy;
 	t_unit_test *new;
-	if (Cpy == NULL)
+
+	if (*test == NULL)
 	{
-		Cpy = malloc(sizeof(t_unit_test));
-		if (Cpy == NULL)
+		new = malloc(sizeof(t_unit_test));
+		if (new == NULL)
 			return ;
-		Cpy->name = name;
-		Cpy->f = f;
-		Cpy->next = NULL;
+		new->name = name;
+		new->f = f;
+		new->next = NULL;
+		*test = new;
 		return ;
 	}
-	while (Cpy != NULL)
-	{
+	Cpy = *test;
+	while (Cpy->next != NULL)
 		Cpy = Cpy->next;
-	}
 	new = malloc(sizeof(t_unit_test));
 	if (new == NULL)
 		return ;
 	new->name = name;
 	new->f = f;
 	new->next = NULL;
+
 	Cpy->next = new;
 }

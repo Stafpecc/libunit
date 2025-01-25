@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libunit.h                                          :+:      :+:    :+:   */
+/*   02_null_test.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 15:57:41 by anfichet          #+#    #+#             */
-/*   Updated: 2025/01/25 19:12:41 by tarini           ###   ########.fr       */
+/*   Created: 2025/01/25 14:52:09 by tarini            #+#    #+#             */
+/*   Updated: 2025/01/25 17:40:15 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBUNIT_H
-# define LIBUNIT_H
+#include <unistd.h>
 
-#include <stdlib.h>
-
-typedef struct s_unit_test
+int	ft_strdup_null_test(void)
 {
-	char				*name;
-	int					(*f)(void);
-	struct s_unit_test	*next;
-}	t_unit_test;
+	char	*dest;
 
-void	launch_test(t_unit_test **test);
-void	load_test(t_unit_test **test, char *name, int (*f)(void));
-
-#endif
+	dest = ft_strdup(NULL);
+	if (dest && ft_strcmp(dest, "(null)") == 0)
+	{
+		free(dest);
+		return (0);
+	}
+	else
+	{
+		free(dest);
+		return (-1);
+	}
+}

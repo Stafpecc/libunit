@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   04_one_char_test.c                                 :+:      :+:    :+:   */
+/*   05_one_char.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 14:52:14 by anfichet          #+#    #+#             */
-/*   Updated: 2025/01/25 15:11:50 by tarini           ###   ########.fr       */
+/*   Created: 2025/01/25 15:04:17 by tarini            #+#    #+#             */
+/*   Updated: 2025/01/25 17:40:51 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen_one_char_test(void)
+int	ft_strjoin_one_char_test(void)
 {
-	if (ft_strlen("A") == 1)
+	char	*result;
+
+	result = ft_strjoin("4", "2");
+	if (result && ft_strcmp(result, "42") == 0)
+	{
+		free(result);
 		return (0);
+	}
 	else
+	{
+		free(result);
 		return (-1);
+	}
 }

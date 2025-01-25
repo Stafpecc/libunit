@@ -1,0 +1,73 @@
+desc: (none)
+cmd: ./a.out
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=165472
+mem_heap_B=10
+mem_heap_extra_B=14
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=166416
+mem_heap_B=10
+mem_heap_extra_B=14
+mem_stacks_B=0
+heap_tree=detailed
+n1: 10 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 10 0x4011B6: ft_strjoin (04_strjoin_bus.c:35)
+  n0: 10 0x4012CC: main (04_strjoin_bus.c:69)
+#-----------
+snapshot=3
+#-----------
+time=166416
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=167585
+mem_heap_B=1024
+mem_heap_extra_B=8
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=171408
+mem_heap_B=1024
+mem_heap_extra_B=8
+mem_stacks_B=0
+heap_tree=peak
+n2: 1024 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1024 0x48E8BA3: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x48F7CDF: _IO_doallocbuf (genops.c:347)
+   n1: 1024 0x48F6F5F: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
+    n1: 1024 0x48F56D4: _IO_new_file_xsputn (fileops.c:1243)
+     n1: 1024 0x48F56D4: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+      n1: 1024 0x48E100B: outstring_func (vfprintf-internal.c:239)
+       n1: 1024 0x48E100B: __vfprintf_internal (vfprintf-internal.c:1517)
+        n1: 1024 0x48CA79E: printf (printf.c:33)
+         n0: 1024 0x4012E0: main (04_strjoin_bus.c:69)
+ n0: 0 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=6
+#-----------
+time=171408
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty

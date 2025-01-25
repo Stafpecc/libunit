@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libunit.h                                          :+:      :+:    :+:   */
+/*   04_empty_test.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 15:57:41 by anfichet          #+#    #+#             */
-/*   Updated: 2025/01/25 19:12:41 by tarini           ###   ########.fr       */
+/*   Created: 2025/01/25 15:04:11 by tarini            #+#    #+#             */
+/*   Updated: 2025/01/25 17:40:46 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBUNIT_H
-# define LIBUNIT_H
-
-#include <stdlib.h>
-
-typedef struct s_unit_test
+int	ft_strjoin_empty_test(void)
 {
-	char				*name;
-	int					(*f)(void);
-	struct s_unit_test	*next;
-}	t_unit_test;
+	char	*result;
 
-void	launch_test(t_unit_test **test);
-void	load_test(t_unit_test **test, char *name, int (*f)(void));
-
-#endif
+	result = ft_strjoin("", "");
+	if (result && ft_strcmp(result, "") == 0)
+	{
+		free(result);
+		return (0);
+	}
+	else
+	{
+		free(result);
+		return (-1);
+	}
+}

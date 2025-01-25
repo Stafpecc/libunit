@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libunit.h                                          :+:      :+:    :+:   */
+/*   00_launcher.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 15:57:41 by anfichet          #+#    #+#             */
+/*   Created: 2025/01/25 19:03:38 by tarini            #+#    #+#             */
 /*   Updated: 2025/01/25 19:12:41 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBUNIT_H
-# define LIBUNIT_H
+#include "../../../framework/incs/libunit.h"
+#include "../../incs/strjoin_tests.h"
 
-#include <stdlib.h>
-
-typedef struct s_unit_test
+int	strjoin_launcher(void)
 {
-	char				*name;
-	int					(*f)(void);
-	struct s_unit_test	*next;
-}	t_unit_test;
+	t_unit_test	*testlist = NULL;
+	
+	load_test(&testlist, "Basic test", &ft_strjoin_basic_test);
+	load_test(&testlist, "Empty test", &ft_strjoin_empty_test);
+	load_test(&testlist, "Bigger string test", &ft_strjoin_bigger_test);
+	load_test(&testlist, "One char test", &ft_strjoin_one_char_test);
+	load_test(&testlist, "Null char in string test", \
+				&ft_strjoin_null_test);
 
-void	launch_test(t_unit_test **test);
-void	load_test(t_unit_test **test, char *name, int (*f)(void));
-
-#endif
+	return(launch_tests(&testlist));
+}

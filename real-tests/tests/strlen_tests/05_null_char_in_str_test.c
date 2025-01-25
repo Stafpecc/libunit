@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_basic_test.c                                    :+:      :+:    :+:   */
+/*   05_null_char_in_str_test.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 14:08:42 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 15:08:54 by tarini           ###   ########.fr       */
+/*   Created: 2025/01/25 15:09:02 by anfichet          #+#    #+#             */
+/*   Updated: 2025/01/25 18:51:56 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen_basic_test(void)
+#include <string.h>
+
+int	ft_strlen_null_char_in_str_test(void)
 {
-	if (ft_strlen("Hello") == 5)
+	if (strlen("IanIan\0Hello") == 6)
 		return (0);
 	else
 		return (-1);

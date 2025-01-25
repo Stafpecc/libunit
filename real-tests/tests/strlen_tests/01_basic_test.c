@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   05_one_char.c                                      :+:      :+:    :+:   */
+/*   01_basic_test.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 15:04:17 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 16:33:55 by tarini           ###   ########.fr       */
+/*   Created: 2025/01/25 14:08:42 by tarini            #+#    #+#             */
+/*   Updated: 2025/01/25 18:51:56 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../framework/incs/libft.h"
+#include <string.h>
 
-int	ft_strjoin_one_char_test(void)
+int	ft_strlen_basic_test(void)
 {
-	char	*result;
-
-	result = ft_strjoin("4", "2");
-	if (result && ft_strcmp(result, "42") == 0)
-	{
-		free(result);
+	if (strlen("Hello") == 5)
 		return (0);
-	}
 	else
-	{
-		free(result);
 		return (-1);
-	}
 }
