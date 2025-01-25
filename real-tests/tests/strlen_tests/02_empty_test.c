@@ -6,15 +6,15 @@
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 14:14:42 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 18:51:56 by tarini           ###   ########.fr       */
+/*   Updated: 2025/01/26 00:05:29 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "../../incs/strlen_tests.h"
 
 int	ft_strlen_empty_test(void)
 {
-	if (strlen("") == 0)
+	if (ft_strlen("") == 0)
 		return (0);
 	else
 		return (-1);

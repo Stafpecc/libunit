@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stafpec <stafpec@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 14:56:43 by tarini            #+#    #+#             */
-/*   Updated: 2024/11/29 15:12:34 by stafpec          ###   ########.fr       */
+/*   Updated: 2025/01/25 21:53:34 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../../framework/incs/libft.h"
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {

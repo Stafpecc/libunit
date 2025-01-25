@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stafpec <stafpec@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 01:55:30 by stafpec           #+#    #+#             */
-/*   Updated: 2024/11/29 15:14:16 by stafpec          ###   ########.fr       */
+/*   Updated: 2025/01/26 00:05:30 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../../framework/incs/libft.h"
 
 int	ft_count(const char *str, char sep)
 {

@@ -6,11 +6,11 @@
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 14:43:26 by stafpec           #+#    #+#             */
-/*   Updated: 2025/01/18 10:18:27 by tarini           ###   ########.fr       */
+/*   Updated: 2025/01/26 00:05:27 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../../framework/incs/libft.h"
 
 static int	ft_signed(int signed_flag, unsigned long *nb, int *count, long n)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stafpec <stafpec@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 14:54:30 by tarini            #+#    #+#             */
-/*   Updated: 2024/11/29 15:11:34 by stafpec          ###   ########.fr       */
+/*   Updated: 2025/01/25 21:53:56 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../../framework/incs/libft.h"
 
 int	ft_pass(int i, const char *str, int *s)
 {

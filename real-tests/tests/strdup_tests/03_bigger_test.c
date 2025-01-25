@@ -6,9 +6,11 @@
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 14:53:35 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 20:38:12 by tarini           ###   ########.fr       */
+/*   Updated: 2025/01/26 00:05:28 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../../incs/strdup_test.h"
 
 int	ft_strdup_bigger_test(void)
 {

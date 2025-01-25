@@ -6,7 +6,7 @@
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 15:57:41 by anfichet          #+#    #+#             */
-/*   Updated: 2025/01/25 20:38:12 by tarini           ###   ########.fr       */
+/*   Updated: 2025/01/26 00:05:31 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_unit_test
 	struct s_unit_test	*next;
 }	t_unit_test;
 
-void	launch_test(t_unit_test **test);
+int		launch_test(t_unit_test **test);
 void	load_test(t_unit_test **test, char *name, char *func, \
 					int (*f)(void));
 

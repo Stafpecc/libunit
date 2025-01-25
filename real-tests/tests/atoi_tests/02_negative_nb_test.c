@@ -6,9 +6,11 @@
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 15:06:33 by anfichet          #+#    #+#             */
-/*   Updated: 2025/01/25 15:08:26 by tarini           ###   ########.fr       */
+/*   Updated: 2025/01/26 00:05:29 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../../incs/atoi_tests.h"
 
 int	ft_atoi_negative_test(void)
 {

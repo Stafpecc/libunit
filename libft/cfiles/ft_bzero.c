@@ -6,11 +6,11 @@
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 12:22:27 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/18 10:19:21 by tarini           ###   ########.fr       */
+/*   Updated: 2025/01/26 00:05:27 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../../framework/incs/libft.h"
 
 void	ft_bzero(void *s, size_t n)
 {

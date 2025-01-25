@@ -6,9 +6,11 @@
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 15:21:15 by anfichet          #+#    #+#             */
-/*   Updated: 2025/01/25 15:53:56 by tarini           ###   ########.fr       */
+/*   Updated: 2025/01/26 00:05:28 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../../incs/atoi_tests.h"
 
 int	ft_atoi_multiple_sign_test(void)
 {

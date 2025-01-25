@@ -6,11 +6,11 @@
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:42:50 by stafpec           #+#    #+#             */
-/*   Updated: 2025/01/18 10:19:38 by tarini           ###   ########.fr       */
+/*   Updated: 2025/01/26 00:05:28 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../../framework/incs/libft.h"
 
 static int	handle_pointer(void *ptr)
 {

@@ -6,13 +6,15 @@
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 17:46:21 by anfichet          #+#    #+#             */
-/*   Updated: 2025/01/25 20:38:13 by tarini           ###   ########.fr       */
+/*   Updated: 2025/01/26 00:05:28 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRLEN_TESTS_H
 # define STRLEN_TESTS_H
 
+# include "../../framework/incs/libunit.h"
+# include "libft.h"
 # include <string.h>
 
 int	strlen_launcher(void);

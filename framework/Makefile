@@ -28,6 +28,7 @@ $(NAME): $(OBJS)
 	$(MAKE) -C $(LIBFT_DIR)
 	mv $(LIBFT_DIR)$(LIBFT) .
 	mv $(LIBFT) $(NAME)
+	$(MAKE) -C $(LIBFT_DIR) clean
 	$(AR) $@ $^
 
 $(OBJS_DIR):
@@ -38,9 +39,15 @@ $(OBJS_DIR)%.o: $(CFILES_DIR)%.c $(INCLUDE) | $(OBJS_DIR)
 
 clean:
 	$(RM_DIR) $(OBJS_DIR)
-	$(MAKE) -C $(LIBFT_DIR) clean
 
 fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
+
+help:
+	echo "Available targets:"
+	echo "  all           - Compile the library and generate $(NAME)"
+	echo "  clean         - Remove all object files and temporary build files"
+	echo "  fclean        - Perform 'clean' and remove the $(NAME) archive"
+	echo "  re            - Rebuild everything from scratch"

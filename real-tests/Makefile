@@ -1,70 +1,107 @@
-.PHONY: all clean fclean re help main
+NAME = real_tester
+LIBS = libunit.a
 
-NAME			= tester
-CFILES_DIR		= tests/
-OBJS_DIR		= .objs/
-FRAMEWORK_DIR	= ../../framework/
+# *********************************VARIABLES**************************************** #
 
-INCLUDE			= incs
-LIBFT			= libft.a
+SRCS_DIR = ./
 
-RM 				= rm -f
-RM_DIR			= rm -rf
-CC				= cc
-MAKE			= make
+SRCS =\
+		main.c \
+		tests/strlen_tests/00_launcher.c \
+		tests/strlen_tests/01_basic_test.c \
+		tests/strlen_tests/02_empty_test.c \
+		tests/strlen_tests/03_bigger_str_test.c \
+		tests/strlen_tests/04_one_char_test.c \
+		tests/strlen_tests/05_null_char_in_str_test.c \
+		tests/strdup_tests/00_launcher.c \
+		tests/strdup_tests/01_basic_test.c \
+		tests/strdup_tests/02_null_test.c \
+		tests/strdup_tests/03_bigger_test.c \
+		tests/strdup_tests/04_empty_test.c \
+		tests/strdup_tests/05_one_char.c \
+		tests/strjoin_tests/00_launcher.c \
+		tests/strjoin_tests/01_basic_test.c \
+		tests/strjoin_tests/02_null_test.c \
+		tests/strjoin_tests/03_bigger_test.c \
+		tests/strjoin_tests/04_empty_test.c \
+		tests/strjoin_tests/05_one_char.c \
+		tests/atoi_tests/00_launcher.c \
+		tests/atoi_tests/01_basic_test.c \
+		tests/atoi_tests/02_negative_test.c \
+		tests/atoi_tests/03_multiple_sign_test.c \
+		tests/atoi_tests/04_only_string_test.c \
+		tests/atoi_tests/05_int_min_test.c
+		
 
-CFLAGS 			= -Wall -Wextra -Werror
+SRCS := $(SRCS:%=$(SRCS_DIR)/%)
 
-SRC				= $(patsubst %, cfiles/%.c_tests, $(CFILES))
-OBJS			= $(patsubst cfiles/%.c, .objs/%.o, $(SRC))
+OBJS_DIR = ./.OBJS
 
+OBJS = $(SRCS:$(SRCS_DIR)/%.c=$(OBJS_DIR)/%.o)
 
-YELLOW          = \033[33m
-GREEN           = \033[1;32m
-RED             = \033[1;31m
-RESET           = \033[0m
+OBJS_BONUS = $(SRCS_BONUS:$(SRCS_DIR)/%.c=$(OBJS_DIR)/%.o)
 
+INCS = ./incs
 
-all: $(NAME)
+INCS_LIBS = ../framework/incs
 
-$(NAME): $(OBJS)
-	mv $(LIBFT_DIR)$(LIBFT) .
+DEPS = $(OBJS:.o=.d)
 
-$(OBJS_DIR):
-	mkdir -p $(OBJS_DIR)
+DEPS_BONUS = $(OBJS_BONUS:.o=.d)
 
-$(OBJS_DIR)%.o: $(CFILES_DIR)%.c $(INCLUDE) | $(OBJS_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+LIBS_TARGET = ../framework/libunit.a
 
-clean:
-	$(RM_DIR) $(OBJS_DIR)
-	$(MAKE) -C $(LIBFT_DIR) clean
+# **********************************COMMANDS**************************************** #
 
-fclean: clean
+CC = cc
+
+CFLAGS = -Werror -Wextra -Wall -MMD -MP
+
+CPPFLAGS = -I$(INCS) -I$(INCS_LIBS)
+
+CFSIGSEV = -fsanitize=address
+
+RM = rm -rf
+
+DIR_DUP= mkdir -p $(@D)
+
+AR = ar rcs
+
+MAKEFLAGS += --no-print-directory
+
+# **********************************RULES**************************************** #
+
+all:	$(NAME)
+
+-include $(DEPS)
+
+$(NAME): $(LIBS_TARGET) $(OBJS)
+	$(CC) $(CFLAGS) $(CPPFLAGS) $(OBJS) -L$(dir $(LIBS_TARGET)) -lunit -o $(NAME)
+
+$(LIBS_TARGET): FORCE
+	@echo " "
+	@echo "\033[1m\033[32m#-------------------------[COMPILATION LIBUNIT]-------------------------#\033[0m"
+	$(MAKE) -C $(@D)
+	@echo "\033[1m\033[32m#---------------------------[LIBUNIT COMPILED]--------------------------#\033[0m"
+	@echo " "
+
+$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
+	@$(DIR_DUP)
+	$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
+
+clean :
+	$(RM) $(OBJS_DIR)
+	$(MAKE) $@ -C ../framework/
+
+fclean : clean
 	$(RM) $(NAME)
+	$(MAKE) $@ -C ../framework/
 
-re: fclean all
+re : fclean all
 
+print% :
+	@echo $(patsubst print%,%,$@)=
+	@echo $($(patsubst print%,%,$@))
 
-main: all $(MAIN) $(INCLUDE)
-		$(CC) $(CFLAGS) -o $(EXEC) $(MAIN) -L. -lft
-	echo "$(GREEN)─────────────────────────────────────────────────"
-
-		./$(EXEC)
-
-	echo "─────────────────────────────────────────────────$(RESET)"		
-
-
-help:
-	@echo "$(YELLOW)Available targets:$(RESET)"
-	@echo " "
-	@echo "$(GREEN)─────────────────────────────────────────────────"
-	@echo " "
-	@echo "$(GREEN)  all$(RESET)         - Compile the library and generate $(NAME)"
-	@echo "$(GREEN)  clean$(RESET)       - Remove all object files and temporary build files"
-	@echo "$(GREEN)  fclean$(RESET)      - Perform 'clean' and remove the $(NAME) binary"
-	@echo "$(GREEN)  re$(RESET)          - Rebuild everything from scratch"
-	@echo "$(GREEN)  main$(RESET)        - Compile and execute the main program"
-	@echo "$(GREEN)  help$(RESET)        - Display this help message"
-	@echo " "
-	@echo "$(GREEN)─────────────────────────────────────
+.PHONY: all clean fclean re FORCE print%
+FORCE:

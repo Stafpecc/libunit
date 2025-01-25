@@ -6,12 +6,13 @@
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 14:20:51 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 20:31:07 by tarini           ###   ########.fr       */
+/*   Updated: 2025/01/26 00:05:29 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
+#include "../../framework/incs/libft.h"
 
 #if defined(__GNUC__)
 # if defined(__i386__)
@@ -51,3 +52,11 @@ size_t	ft_strlen_buserror(char const *str)
 
 # endif
 #endif
+
+int	ft_strlen_bus_test(void)
+{
+	if (ft_strlen_buserror("Hello") == 5)
+		return (0);
+	else
+		return (-1);
+}

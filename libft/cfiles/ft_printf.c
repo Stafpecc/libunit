@@ -6,11 +6,11 @@
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 15:04:17 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/18 10:18:48 by tarini           ###   ########.fr       */
+/*   Updated: 2025/01/26 00:05:27 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../../framework/incs/libft.h"
 
 static int	process_format(const char *format, va_list args, int *count)
 {

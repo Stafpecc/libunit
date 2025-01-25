@@ -6,11 +6,10 @@
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 14:14:37 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 20:38:13 by tarini           ###   ########.fr       */
+/*   Updated: 2025/01/26 00:05:26 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../framework/incs/libunit.h"
 #include "../../incs/strlen_tests.h"
 
 int	strlen_launcher(void)
@@ -25,5 +24,5 @@ int	strlen_launcher(void)
 	load_test(&testlist, "One char test", "STRLEN", &ft_strlen_one_char_test);
 	load_test(&testlist, "Null char in string test", "STRLEN", \
 				&ft_strlen_null_char_in_str_test);
-	return (launch_tests(&testlist));
+	return (launch_test(&testlist));
 }

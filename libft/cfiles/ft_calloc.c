@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stafpec <stafpec@student.42.fr>            +#+  +:+       +#+        */
+/*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 16:18:07 by tarini            #+#    #+#             */
-/*   Updated: 2024/11/29 15:11:41 by stafpec          ###   ########.fr       */
+/*   Updated: 2025/01/25 21:53:50 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../../framework/incs/libft.h"
 #include <stdint.h>
 
 void	*ft_calloc(size_t elementCount, size_t elementSize)

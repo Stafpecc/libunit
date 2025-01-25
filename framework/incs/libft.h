@@ -6,7 +6,7 @@
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 14:16:06 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 16:14:21 by tarini           ###   ########.fr       */
+/*   Updated: 2025/01/26 00:05:28 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 # define LIBFT_H
 
 # include <stdlib.h>
+
+# include <unistd.h>
+# include <stdarg.h>
+
+# define UP_HEXA "0123456789ABCDEF"
+# define LOW_HEXA "0123456789abcdef"
+# define DECIMAL "0123456789"
 
 int				ft_isalpha(int c);
 int				ft_isdigit(int c);
@@ -49,6 +56,7 @@ void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
 void			ft_striteri(char *s, void (*f)(unsigned int, char*));
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+int				ft_strcmp(const char *str1, const char *str2);
 
 // bonus
 
@@ -68,5 +76,11 @@ void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
+
+int				ft_printf(const char *format, ...);
+int				ft_putchar(char c);
+int				ft_putstr(char *str);
+int				ft_putnbrbase(long n, const char *base, int signed_flag);
+int				handle_conversion(const char format, va_list args);
 
 #endif

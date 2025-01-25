@@ -6,11 +6,11 @@
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 15:12:35 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/18 10:18:40 by tarini           ###   ########.fr       */
+/*   Updated: 2025/01/26 00:05:30 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/libft.h"
+#include "../../framework/incs/libft.h"
 
 int	ft_putstr(char *str)
 {

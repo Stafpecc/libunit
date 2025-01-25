@@ -6,11 +6,12 @@
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 19:29:03 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 20:28:26 by tarini           ###   ########.fr       */
+/*   Updated: 2025/01/26 00:05:28 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/libunit.h"
+#include "../incs/libft.h"
 #include <unistd.h>
 #include <sys/wait.h>
 
@@ -27,7 +28,7 @@ void	free_list(t_unit_test **test)
 	}
 }
 
-void launch_test(t_unit_test **test)
+int launch_test(t_unit_test **test)
 {
 	t_unit_test	*tmp;
 	pid_t		pid;
@@ -40,14 +41,14 @@ void launch_test(t_unit_test **test)
 		if (pid == -1)
 		{
 			write(2, "Fork failed\n", 12);
-			free_list(tmp);
+			free_list(&tmp);
 			exit(EXIT_FAILURE);
 		}
 		if (pid == 0) // on est dans le processus fils
 		{
 			if (tmp->f() == 0)
 				exit(EXIT_SUCCESS);
-			else
+			else if (tmp->f() != 0)
 				exit(EXIT_FAILURE);
 			//exit(tmp->f() == 0)
 			// voir si on ecrit au fur et a mesure ou on stocke le resultat dans la liste
@@ -55,7 +56,9 @@ void launch_test(t_unit_test **test)
 		}
 		else //on est dans le processus parent
 		{
+			status = 0;
 			wait(&status);
+			ft_printf("status = %d\n", status);
 			if (WIFEXITED(status))
 			{
 				if (WEXITSTATUS(status) == 0)
@@ -71,6 +74,8 @@ void launch_test(t_unit_test **test)
 					ft_printf("%s : %s : [SIGBUS]\n", tmp->function, tmp->name);
 			}
 		}
+		tmp = tmp->next;
 	}
-	free_list(tmp);
+	free_list(&tmp);
+	return (status);
 }

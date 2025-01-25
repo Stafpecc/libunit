@@ -63,7 +63,7 @@ INCLUDE         = libft.h
 MAKEFILE        = Makefile
 OBJS_DIR        = .objs/
 CFILES_DIR		= cfiles/
-INCLUDE_DIR		= includes/
+INCLUDE_DIR		= ../framework/incs/
 
 RM              = rm -f
 RM_DIR			= rm -rf
@@ -80,16 +80,14 @@ all: $(NAME)
 
 
 $(NAME): $(OBJS)
-		$(AR) $@ $^
+	$(AR) $@ $^
+	
 
 $(OBJS_DIR):
-
-		mkdir -p $(OBJS_DIR)
+	mkdir -p $(OBJS_DIR)
 
 $(OBJS_DIR)%.o: $(CFILES_DIR)%.c $(INCLUDE_DIR)$(INCLUDE) | $(OBJS_DIR)
-
-		$(CC) $(CFLAGS) -c $< -o $@
-
+	$(CC) $(CFLAGS) -c $< -o $@
 
 
 valgrind: $(NAME) main.c
@@ -112,15 +110,11 @@ valgrind: $(NAME) main.c
 
 
 clean:
-
-		$(RM_DIR) $(OBJS_DIR)
-
+	$(RM_DIR) $(OBJS_DIR)
 
 
 fclean: clean
-
-		$(RM) $(NAME)
-
+	$(RM) $(NAME)
 
 
 re : fclean all
