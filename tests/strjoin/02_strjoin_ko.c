@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strjoin_ok.c                                       :+:      :+:    :+:   */
+/*   strjoin_ko.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 14:15:18 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 14:16:11 by tarini           ###   ########.fr       */
+/*   Created: 2025/01/25 14:16:25 by tarini            #+#    #+#             */
+/*   Updated: 2025/01/25 15:13:49 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	result = malloc(sizeof(char) * (len1 + len2 + 1));
 	if (!result)
 		return (NULL);
-	i = -1;
-	while (++i < len1)
+	i = 0;
+	while (i++ < len1)
 		result[i] = s1[i];
-	j = -1;
-	while (++j < len2)
+	j = 0;
+	while (j++ < len2)
 		result[i + j] = s2[j];
 	result[i + j] = '\0';
 	return (result);

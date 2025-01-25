@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strjoin_ko.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stafpec <stafpec@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 14:16:25 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 14:39:55 by tarini           ###   ########.fr       */
+/*   Created: 2024/11/14 11:07:44 by tarini            #+#    #+#             */
+/*   Updated: 2024/11/29 15:14:39 by stafpec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../framework/incs/libft.h"
+#include "../includes/libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -27,11 +27,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	result = malloc(sizeof(char) * (len1 + len2 + 1));
 	if (!result)
 		return (NULL);
-	i = 0;
-	while (i++ < len1)
+	i = -1;
+	while (++i < len1)
 		result[i] = s1[i];
-	j = 0;
-	while (j++ < len2)
+	j = -1;
+	while (++j < len2)
 		result[i + j] = s2[j];
 	result[i + j] = '\0';
 	return (result);

@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_basic_test.c                                    :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stafpec <stafpec@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 14:45:30 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 16:33:55 by tarini           ###   ########.fr       */
+/*   Created: 2024/11/17 16:10:44 by tarini            #+#    #+#             */
+/*   Updated: 2024/11/29 15:12:42 by stafpec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../framework/incs/libft.h"
+#include "../includes/libft.h"
 
-int	ft_strjoin_basic_test(void)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	char	*result;
+	t_list	*temp;
 
-	result = ft_strjoin("Hello", "Coucou");
-	if (result && ft_strcmp(result, "HelloCoucou") == 0)
+	if (!lst || !*lst || !del)
+		return ;
+	while (*lst)
 	{
-		free(result);
-		return (0);
+		temp = (*lst)->next;
+		(*del)((*lst)->content);
+		free(*lst);
+		*lst = temp;
 	}
-	else
-	{
-		free(result);
-		return (-1);
-	}
+	*lst = NULL;
 }

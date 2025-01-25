@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_basic_test.c                                    :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stafpec <stafpec@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 14:45:30 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 16:33:55 by tarini           ###   ########.fr       */
+/*   Created: 2024/11/05 15:07:34 by tarini            #+#    #+#             */
+/*   Updated: 2024/11/29 15:14:52 by stafpec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../framework/incs/libft.h"
+#include "../includes/libft.h"
 
-int	ft_strjoin_basic_test(void)
+size_t	ft_strlen(const char *s)
 {
-	char	*result;
+	size_t	count;
 
-	result = ft_strjoin("Hello", "Coucou");
-	if (result && ft_strcmp(result, "HelloCoucou") == 0)
+	count = 0;
+	while (s[count] != '\0')
 	{
-		free(result);
-		return (0);
+		count++;
 	}
-	else
-	{
-		free(result);
-		return (-1);
-	}
+	return (count);
 }
+
+/* #include <stdio.h>
+
+int	main(void) {
+	printf("%zu", ft_strlen((const char *)"Coucou"));
+} */

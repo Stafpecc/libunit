@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_basic_test.c                                    :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 14:45:30 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 16:33:55 by tarini           ###   ########.fr       */
+/*   Created: 2024/11/17 14:50:53 by tarini            #+#    #+#             */
+/*   Updated: 2025/01/18 10:18:57 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../framework/incs/libft.h"
+#include "../includes/libft.h"
 
-int	ft_strjoin_basic_test(void)
+t_list	*ft_lstlast(t_list *lst)
 {
-	char	*result;
-
-	result = ft_strjoin("Hello", "Coucou");
-	if (result && ft_strcmp(result, "HelloCoucou") == 0)
+	if (lst)
 	{
-		free(result);
-		return (0);
+		while (lst->next != NULL)
+			lst = lst->next;
 	}
-	else
-	{
-		free(result);
-		return (-1);
-	}
+	return (lst);
 }

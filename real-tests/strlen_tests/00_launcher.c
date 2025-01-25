@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_basic_test.c                                    :+:      :+:    :+:   */
+/*   00_launcher.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 14:08:42 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 14:36:31 by tarini           ###   ########.fr       */
+/*   Created: 2025/01/25 14:14:37 by tarini            #+#    #+#             */
+/*   Updated: 2025/01/25 16:08:25 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libunit.h"
 
-int	ft_strlen_basic_test(void)
+
+// appel des fonctions .c
+int	strlen_launcher(void)
 {
-	if (ft_strlen("Hello") == 5)
-		return (0);
-	else
-		return (-1);
+	t_unit_test	*testlist;
+	
+	
 }

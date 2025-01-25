@@ -6,7 +6,7 @@
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 14:53:35 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 15:34:06 by tarini           ###   ########.fr       */
+/*   Updated: 2025/01/25 16:15:23 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_strdup_basic_test(void)
 {
 	char	*dest;
-	
+
 	dest = ft_strdup("Non quas velit qui amet obcaecati non ullam minima eos temporibus \
 molestiaenon assumenda blanditiis aut numquam deserunt! Eos dolorem blanditiis est autem fuga \
 in perferendisfacilis At deserunt iste ut rerum similique. Eum veritatis voluptatum At voluptas \
@@ -48,4 +48,3 @@ maxime galisum hicperspiciatis magni?") == 0)
 		return (-1);
 	}
 }
-

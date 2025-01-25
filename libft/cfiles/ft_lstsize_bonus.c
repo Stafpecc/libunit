@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_basic_test.c                                    :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stafpec <stafpec@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 14:45:30 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 16:33:55 by tarini           ###   ########.fr       */
+/*   Created: 2024/11/17 14:14:26 by tarini            #+#    #+#             */
+/*   Updated: 2024/11/29 15:13:10 by stafpec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../framework/incs/libft.h"
+#include "../includes/libft.h"
 
-int	ft_strjoin_basic_test(void)
+int	ft_lstsize(t_list *lst)
 {
-	char	*result;
+	int	current_position;
 
-	result = ft_strjoin("Hello", "Coucou");
-	if (result && ft_strcmp(result, "HelloCoucou") == 0)
+	current_position = 0;
+	while (lst != NULL)
 	{
-		free(result);
-		return (0);
+		lst = lst->next;
+		current_position++;
 	}
-	else
-	{
-		free(result);
-		return (-1);
-	}
+	return (current_position);
 }

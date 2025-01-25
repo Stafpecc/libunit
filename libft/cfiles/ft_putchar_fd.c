@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   00_launcher.c                                      :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stafpec <stafpec@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 14:14:37 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 14:16:27 by tarini           ###   ########.fr       */
+/*   Created: 2024/11/14 13:08:39 by tarini            #+#    #+#             */
+/*   Updated: 2024/11/29 15:13:53 by stafpec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
+#include <unistd.h>
 
-
-// appel des fonctions .c
+void	ft_putchar_fd(char s, int fd)
+{
+	write(fd, &s, 1);
+}

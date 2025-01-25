@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 14:16:06 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 16:14:21 by tarini           ###   ########.fr       */
+/*   Created: 2024/11/12 15:21:52 by tarini            #+#    #+#             */
+/*   Updated: 2025/01/25 16:22:38 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,18 @@
 # define LIBFT_H
 
 # include <stdlib.h>
+# include <unistd.h>
+# include <stdarg.h>
+
+# define UP_HEXA "0123456789ABCDEF"
+# define LOW_HEXA "0123456789abcdef"
+# define DECIMAL "0123456789"
+
+int				ft_printf(const char *format, ...);
+int				ft_putchar(char c);
+int				ft_putstr(char *str);
+int				ft_putnbrbase(long n, const char *base, int signed_flag);
+int				handle_conversion(const char format, va_list args);
 
 int				ft_isalpha(int c);
 int				ft_isdigit(int c);

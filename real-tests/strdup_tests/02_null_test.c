@@ -6,7 +6,7 @@
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 14:52:09 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 15:33:22 by tarini           ###   ########.fr       */
+/*   Updated: 2025/01/25 16:33:55 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_strdup_null_test(void)
 {
 	char	*dest;
-	
+
 	dest = ft_strdup(NULL);
 	if (dest && ft_strcmp(dest, "(null)") == 0)
 	{

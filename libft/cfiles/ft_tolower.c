@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   05_one_char.c                                      :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stafpec <stafpec@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 15:04:17 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 16:33:55 by tarini           ###   ########.fr       */
+/*   Created: 2024/11/12 23:32:19 by stafpec           #+#    #+#             */
+/*   Updated: 2024/11/29 15:15:20 by stafpec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../framework/incs/libft.h"
-
-int	ft_strdup_null_test(void)
+int	ft_tolower(int c)
 {
-	char	*dest;
-
-	dest = ft_strdup("0");
-	if (dest && ft_strcmp(dest, "0") == 0)
-	{
-		free(dest);
-		return (0);
-	}
-	else
-	{
-		free(dest);
-		return (-1);
-	}
+	if (c >= 'A' && c <= 'Z')
+		return (c + ('a' - 'A'));
+	return (c);
 }
+/*
+#include <stdio.h>
+
+int	main(void) {
+	printf("%d", ft_tolower('A'));
+	return (1);
+}
+*/

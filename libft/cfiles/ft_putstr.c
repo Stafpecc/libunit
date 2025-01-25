@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_basic_test.c                                    :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 14:45:30 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 16:33:55 by tarini           ###   ########.fr       */
+/*   Created: 2024/11/27 15:12:35 by tarini            #+#    #+#             */
+/*   Updated: 2025/01/18 10:18:40 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../framework/incs/libft.h"
+#include "../includes/libft.h"
 
-int	ft_strjoin_basic_test(void)
+int	ft_putstr(char *str)
 {
-	char	*result;
-
-	result = ft_strjoin("Hello", "Coucou");
-	if (result && ft_strcmp(result, "HelloCoucou") == 0)
-	{
-		free(result);
-		return (0);
-	}
-	else
-	{
-		free(result);
+	if (!str)
+		return (ft_putstr("(null)"));
+	if (write(1, str, ft_strlen(str)) == -1)
 		return (-1);
-	}
+	return (ft_strlen(str));
 }

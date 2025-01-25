@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_null_test.c                                     :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stafpec <stafpec@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 14:14:42 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 14:36:53 by tarini           ###   ########.fr       */
+/*   Created: 2024/11/17 15:23:30 by tarini            #+#    #+#             */
+/*   Updated: 2024/11/29 15:12:47 by stafpec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen_null_test(void)
+#include "../includes/libft.h"
+
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	if (ft_strlen("") == 5)
-		return (0);
-	else
-		return (-1);
+	if (!lst || !del)
+		return ;
+	(*del)(lst->content);
+	free(lst);
 }

@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_basic_test.c                                    :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stafpec <stafpec@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 14:45:30 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 16:33:55 by tarini           ###   ########.fr       */
+/*   Created: 2024/11/17 14:56:43 by tarini            #+#    #+#             */
+/*   Updated: 2024/11/29 15:12:34 by stafpec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../framework/incs/libft.h"
+#include "../includes/libft.h"
 
-int	ft_strjoin_basic_test(void)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	char	*result;
+	struct s_list	*current;
 
-	result = ft_strjoin("Hello", "Coucou");
-	if (result && ft_strcmp(result, "HelloCoucou") == 0)
+	if (!*lst)
 	{
-		free(result);
-		return (0);
+		*lst = new;
+		return ;
 	}
-	else
-	{
-		free(result);
-		return (-1);
-	}
+	current = *lst;
+	while (current->next != NULL)
+		current = current->next;
+	current->next = new;
 }

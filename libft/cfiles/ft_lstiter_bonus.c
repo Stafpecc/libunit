@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   05_one_char.c                                      :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stafpec <stafpec@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 15:04:17 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/25 16:33:55 by tarini           ###   ########.fr       */
+/*   Created: 2024/11/17 16:42:28 by tarini            #+#    #+#             */
+/*   Updated: 2024/11/29 15:12:51 by stafpec          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../framework/incs/libft.h"
+#include "../includes/libft.h"
 
-int	ft_strdup_null_test(void)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	char	*dest;
-
-	dest = ft_strdup("0");
-	if (dest && ft_strcmp(dest, "0") == 0)
+	while (lst)
 	{
-		free(dest);
-		return (0);
-	}
-	else
-	{
-		free(dest);
-		return (-1);
+		(*f)(lst->content);
+		lst = lst->next;
 	}
 }
