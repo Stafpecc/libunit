@@ -3,27 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   00_launcher.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anfichet <anfichet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 20:29:50 by anfichet          #+#    #+#             */
-/*   Updated: 2025/01/26 15:04:50 by tarini           ###   ########.fr       */
+/*   Created: 2025/01/25 19:03:38 by tarini            #+#    #+#             */
+/*   Updated: 2025/01/26 00:12:50 by anfichet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
-#include "../incs/strlen_tests.h"
+#include "strjoin_tests.h"
 
-int	strlen_launcher_test(void)
+int	strjoin_launcher(void)
 {
 	t_unit_test	*testlist;
 
 	testlist = NULL;
-	load_test(&testlist, "Basic test OK", "STRLEN", &ft_strlen_basic_test);
-	load_test(&testlist, "Error test KO", "STRLEN", &ft_strlen_ko_test);
-	load_test(&testlist, "Segfault test", "STRLEN", \
-				&ft_strlen_segfault_test);
-	load_test(&testlist, "Bus error test", "STRLEN", &ft_strlen_bus_test);
+	load_test(&testlist, "Basic test", "STRJOIN", &ft_strjoin_basic_test);
+	load_test(&testlist, "Empty test", "STRJOIN", &ft_strjoin_empty_test);
+	load_test(&testlist, "Bigger string test", "STRJOIN", \
+				&ft_strjoin_bigger_test);
+	load_test(&testlist, "One char test", "STRJOIN", &ft_strjoin_one_char_test);
+	load_test(&testlist, "Null char in string test", "STRJOIN", \
+				&ft_strjoin_null_test);
 	return (launch_test(&testlist));
 }
-
-	// load_test(&testlist, "Timeout test", "STRLEN", &ft_strlen_timeout_test);

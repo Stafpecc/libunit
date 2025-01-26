@@ -6,7 +6,7 @@
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 14:16:06 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/26 00:05:28 by tarini           ###   ########.fr       */
+/*   Updated: 2025/01/26 15:37:27 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define LIBFT_H
 
 # include <stdlib.h>
-
 # include <unistd.h>
 # include <stdarg.h>
 

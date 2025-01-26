@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   02_empty_test.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anfichet <anfichet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/26 01:25:26 by anfichet          #+#    #+#             */
-/*   Updated: 2025/01/26 144:472 by tarini           ###   ########.fr       */
+/*   Created: 2025/01/25 14:14:42 by tarini            #+#    #+#             */
+/*   Updated: 2025/01/26 00:11:55 by anfichet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "incs/strlen_tests.h"
+#include "strlen_tests.h"
 
-int	main(void)
+int	ft_strlen_empty_test(void)
 {
-	strlen_launcher_test();
-	return (0);
+	if (ft_strlen("") == 0)
+		return (0);
+	else
+		return (-1);
 }

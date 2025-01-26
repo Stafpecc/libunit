@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   strdup_test.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anfichet <anfichet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 19:40:42 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/26 00:05:31 by tarini           ###   ########.fr       */
+/*   Updated: 2025/01/26 01:24:51 by anfichet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRDUP_TESTS_H
-# define STRDUP_TESTS_H
+#ifndef STRDUP_TEST_H
+# define STRDUP_TEST_H
 
-# include "../../framework/incs/libunit.h"
+# include "libunit.h"
 # include "libft.h"
 # include <string.h>
 

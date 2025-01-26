@@ -3,27 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   00_launcher.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anfichet <anfichet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 20:29:50 by anfichet          #+#    #+#             */
-/*   Updated: 2025/01/26 15:04:50 by tarini           ###   ########.fr       */
+/*   Created: 2025/01/25 19:10:24 by tarini            #+#    #+#             */
+/*   Updated: 2025/01/26 00:11:35 by anfichet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
-#include "../incs/strlen_tests.h"
+#include "atoi_tests.h"
 
-int	strlen_launcher_test(void)
+int	atoi_launcher(void)
 {
 	t_unit_test	*testlist;
 
 	testlist = NULL;
-	load_test(&testlist, "Basic test OK", "STRLEN", &ft_strlen_basic_test);
-	load_test(&testlist, "Error test KO", "STRLEN", &ft_strlen_ko_test);
-	load_test(&testlist, "Segfault test", "STRLEN", \
-				&ft_strlen_segfault_test);
-	load_test(&testlist, "Bus error test", "STRLEN", &ft_strlen_bus_test);
+	load_test(&testlist, "Basic test", "ATOI", &ft_atoi_basic_test);
+	load_test(&testlist, "Empty test", "ATOI", &ft_atoi_negative_test);
+	load_test(&testlist, "Bigger string test", "ATOI", \
+				&ft_atoi_multiple_sign_test);
+	load_test(&testlist, "Only string test", "ATOI", &ft_atoi_only_string_test);
+	load_test(&testlist, "Null char in string test", "ATOI", \
+				&ft_atoi_int_min_test);
 	return (launch_test(&testlist));
 }
-
-	// load_test(&testlist, "Timeout test", "STRLEN", &ft_strlen_timeout_test);

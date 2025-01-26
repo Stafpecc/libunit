@@ -1,0 +1,51 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   03_bigger_test.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/25 14:53:35 by tarini            #+#    #+#             */
+/*   Updated: 2025/01/26 11:35:01 by tarini           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "strjoin_tests.h"
+
+int	ft_strjoin_bigger_test(void)
+{
+	char	*result;
+
+	result = ft_strjoin("Non quas velit qui amet obcaecati non ullam minima eos temporibus \
+molestiaenon assumenda blanditiis aut numquam deserunt! Eos dolorem blanditiis est autem fuga \
+in perferendisfacilis At deserunt iste ut rerum similique. Eum veritatis voluptatum At voluptas \
+sint sit dignissimosreprehenderit nam impedit perferendis ut eligendi nisi ut rerum voluptates \
+id consequatur adipisci.Ad eius facilis aut facere perspiciatis aut tempora exercitationem in \
+iure velit non consecteturbeatae.", "lo33 molestias rerum eos facilis aliquam ut illum quisquam \
+sed maiores repellat quodignissimos nihil vel laudantium laudantium est consequuntur asperiores. \
+Ad voluptas perferendisnam expedita voluptate ut veritatis libero ab quaerat consequatur et soluta \
+officiis vel voluptatemdeleniti! Est corrupti omnis rem impedit consequatur vel inventore impedit. \
+Ut repellat amet eosrepudiandae tempore ut rerum sunt et consequatur fugit sit quis similique et \
+maxime galisum hicperspiciatis magni?");
+	if (result && ft_strcmp(result, "Non quas velit qui amet obcaecati non ullam minima eos temporibus \
+molestiaenon assumenda blanditiis aut numquam deserunt! Eos dolorem blanditiis est autem fuga \
+in perferendisfacilis At deserunt iste ut rerum similique. Eum veritatis voluptatum At voluptas \
+sint sit dignissimosreprehenderit nam impedit perferendis ut eligendi nisi ut rerum voluptates \
+id consequatur adipisci.Ad eius facilis aut facere perspiciatis aut tempora exercitationem in \
+iure velit non consecteturbeatae.lo33 molestias rerum eos facilis aliquam ut illum quisquam \
+sed maiores repellat quodignissimos nihil vel laudantium laudantium est consequuntur asperiores. \
+Ad voluptas perferendisnam expedita voluptate ut veritatis libero ab quaerat consequatur et soluta \
+officiis vel voluptatemdeleniti! Est corrupti omnis rem impedit consequatur vel inventore impedit. \
+Ut repellat amet eosrepudiandae tempore ut rerum sunt et consequatur fugit sit quis similique et \
+maxime galisum hicperspiciatis magni?") == 0)
+	{
+		free(result);
+		return (0);
+	}
+	else
+	{
+		if (!result)
+			free(result);
+		return (-1);
+	}
+}

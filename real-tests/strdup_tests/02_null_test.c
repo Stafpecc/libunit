@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   02_null_test.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/26 01:25:26 by anfichet          #+#    #+#             */
-/*   Updated: 2025/01/26 144:472 by tarini           ###   ########.fr       */
+/*   Created: 2025/01/25 14:52:09 by tarini            #+#    #+#             */
+/*   Updated: 2025/01/26 11:59:08 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "incs/strlen_tests.h"
+#include "strdup_test.h"
 
-int	main(void)
+int	ft_strdup_null_test(void)
 {
-	strlen_launcher_test();
-	return (0);
+	char	*dest;
+
+	dest = ft_strdup(NULL);
+	if (dest == NULL)
+	{
+		return (0);
+	}
+	else
+	{
+		free(dest);
+		return (-1);
+	}
 }

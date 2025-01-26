@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   04_strlen_bus_function.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/26 01:25:26 by anfichet          #+#    #+#             */
-/*   Updated: 2025/01/26 144:472 by tarini           ###   ########.fr       */
+/*   Created: 2025/01/26 15:26:26 by tarini            #+#    #+#             */
+/*   Updated: 2025/01/26 15:30:51 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "incs/strlen_tests.h"
+#include "../../framework/incs/libft.h"
 
-int	main(void)
+size_t	ft_strlen_buserror(char const *str)
 {
-	strlen_launcher_test();
-	return (0);
+	size_t	ret;
+	char	*cptr;
+
+	ret = 0;
+	__asm__("pushf\norl $0x40000,(%rsp)\npopf");
+	cptr = malloc(sizeof(char) + 1);
+	cptr = (char *)++str;
+	while (cptr[ret] != '\0')
+		ret++;
+	return (ret);
 }

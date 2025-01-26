@@ -8,8 +8,10 @@ SRCS_DIR = ./
 SRCS =\
 		strlen/01_strlen_ok.c \
 		strlen/02_strlen_ko.c \
+		strlen/02_strlen_ko_function.c \
 		strlen/03_strlen_segfault.c \
 		strlen/04_strlen_bus.c \
+		strlen/04_strlen_bus_function.c \
 		strlen/00_launcher.c \
 		main.c
 
@@ -29,7 +31,7 @@ DEPS = $(OBJS:.o=.d)
 
 DEPS_BONUS = $(OBJS_BONUS:.o=.d)
 
-LIBS_TARGET = ../framework/libunit.a
+LIBS_TARGET = ../framework/libunit.a ../libft/libft.a
 
 # **********************************COMMANDS**************************************** #
 
@@ -55,8 +57,14 @@ all:	$(NAME)
 
 -include $(DEPS)
 
+test : all
+	./$(NAME)
+
+valgrind : all
+	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
+	
 $(NAME): $(LIBS_TARGET) $(OBJS)
-	$(CC) $(CFLAGS) $(CPPFLAGS) $(OBJS) -L$(dir $(LIBS_TARGET)) -lunit -o $(NAME)
+	$(CC) $(CFLAGS) $(CPPFLAGS) $(OBJS) $(addprefix -L, $(dir $(LIBS_TARGET))) -lunit -lft -o $(NAME)
 
 $(LIBS_TARGET): FORCE
 	@echo " "
@@ -83,6 +91,6 @@ print% :
 	@echo $(patsubst print%,%,$@)=
 	@echo $($(patsubst print%,%,$@))
 
-.PHONY: all clean fclean re FORCE print%
+.PHONY: all clean fclean re valgrind test FORCE print%
 FORCE:
 

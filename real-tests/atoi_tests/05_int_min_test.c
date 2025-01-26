@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   05_int_min_test.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
+/*   By: anfichet <anfichet@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/26 01:25:26 by anfichet          #+#    #+#             */
-/*   Updated: 2025/01/26 144:472 by tarini           ###   ########.fr       */
+/*   Created: 2025/01/25 15:24:31 by anfichet          #+#    #+#             */
+/*   Updated: 2025/01/26 00:11:10 by anfichet         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "incs/strlen_tests.h"
+#include "atoi_tests.h"
 
-int	main(void)
+int	ft_atoi_int_min_test(void)
 {
-	strlen_launcher_test();
-	return (0);
+	if (ft_atoi("  -2147483648iuyi") == -2147483648)
+		return (0);
+	else
+		return (-1);
 }

@@ -1,144 +1,116 @@
-.SILENT:
+NAME=libft.a
 
-.PHONY: all clean fclean re help valgrind
+#------------------------------------------------------------------------------#
+# 							VARIABLES										   #
+#------------------------------------------------------------------------------#
 
-CFILES = isdigit                 \
-	isalpha                      \
-	isalnum                      \
-	isascii                      \
-	isprint                      \
-	strlen                       \
-	memset                       \
-	bzero                        \
-	memcpy                       \
-	memmove                      \
-	strlcpy                      \
-	strlcat                      \
-	toupper                      \
-	tolower                      \
-	strchr                       \
-	strrchr                      \
-	strncmp                      \
-	memchr                       \
-	memcmp                       \
-	strnstr                      \
-	atoi                         \
-	strdup                       \
-	calloc                       \
-	split                        \
-	substr                       \
-	strjoin                      \
-	strcmp 						 \
-	strtrim                      \
-	itoa                         \
-	putchar_fd                   \
-	putstr_fd                    \
-	putendl_fd                   \
-	putnbr_fd                    \
-	strmapi                      \
-	striteri                     \
-	printf 		                 \
-	putchar 			         \
-	putstr 			             \
-	putnbrbase 		             \
-	handle                       \
-	lstnew_bonus                 \
-	lstadd_front_bonus           \
-	lstsize_bonus                \
-	lstlast_bonus                \
-	lstadd_back_bonus            \
-	lstdelone_bonus              \
-	lstclear_bonus               \
-	lstiter_bonus                \
-	lstmap_bonus 
+SRCS_DIR= ./cfiles
 
-PURPLE          = \033[1;35m
-GREEN           = \033[1;32m
-RED             = \033[1;31m
-YELLOW          = \033[33m
-RESET           = \033[0m
+SRCS = \
+	ft_isdigit.c                      \
+	ft_isalpha.c                      \
+	ft_isalnum.c                      \
+	ft_isascii.c                      \
+	ft_isprint.c                      \
+	ft_strlen.c                       \
+	ft_memset.c                       \
+	ft_bzero.c                        \
+	ft_memcpy.c                       \
+	ft_memmove.c                      \
+	ft_strlcpy.c                      \
+	ft_strlcat.c                      \
+	ft_toupper.c                      \
+	ft_tolower.c                      \
+	ft_strchr.c                       \
+	ft_strrchr.c                      \
+	ft_strncmp.c                      \
+	ft_memchr.c                       \
+	ft_memcmp.c                       \
+	ft_strnstr.c                      \
+	ft_atoi.c                         \
+	ft_strdup.c                       \
+	ft_calloc.c                       \
+	ft_split.c                        \
+	ft_substr.c                       \
+	ft_strjoin.c                      \
+	ft_strcmp.c 				      \
+	ft_strtrim.c                      \
+	ft_itoa.c                         \
+	ft_putchar_fd.c                   \
+	ft_putstr_fd.c                    \
+	ft_putendl_fd.c                   \
+	ft_putnbr_fd.c                    \
+	ft_strmapi.c                      \
+	ft_striteri.c                     \
+	ft_printf.c 		              \
+	ft_putchar.c 			          \
+	ft_putstr.c 			          \
+	ft_putnbrbase.c 		          \
+	ft_handle.c                       \
+	ft_lstnew_bonus.c                 \
+	ft_lstadd_front_bonus.c           \
+	ft_lstsize_bonus.c                \
+	ft_lstlast_bonus.c                \
+	ft_lstadd_back_bonus.c            \
+	ft_lstdelone_bonus.c              \
+	ft_lstclear_bonus.c               \
+	ft_lstiter_bonus.c                \
+	ft_lstmap_bonus.c 
 
-NAME            = libft.a
-INCLUDE         = libft.h
-MAKEFILE        = Makefile
-OBJS_DIR        = .objs/
-CFILES_DIR		= cfiles/
-INCLUDE_DIR		= ../framework/incs/
+SRCS:= $(SRCS:%=$(SRCS_DIR)/%)
 
-RM              = rm -f
-RM_DIR			= rm -rf
-CC              = cc
-AR              = ar -rcs
-MAKE			= make
+OBJS_DIR= ./OBJS
 
-CFLAGS          = -Wall -Wextra -Werror
+OBJS=$(SRCS:$(SRCS_DIR)/%.c=$(OBJS_DIR)/%.o)
 
-SRC				= $(patsubst %, cfiles/ft_%.c, $(CFILES))
-OBJS			= $(patsubst cfiles/%.c, .objs/%.o, $(SRC))
+INCS= ../framework/incs
 
-all: $(NAME)
+DEPS= $(OBJS:.o=.d)
 
 
-$(NAME): $(OBJS)
-	$(AR) $@ $^
-	
+#------------------------------------------------------------------------------#
+# 							COMMANDS									       #
+#------------------------------------------------------------------------------#
 
-$(OBJS_DIR):
-	mkdir -p $(OBJS_DIR)
+CC= cc
 
-$(OBJS_DIR)%.o: $(CFILES_DIR)%.c $(INCLUDE_DIR)$(INCLUDE) | $(OBJS_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+CFLAGS= -Werror -Wextra -Wall -MMD -MP
 
+RM= rm -rf
 
-valgrind: $(NAME) main.c
-	echo "$(PURPLE)Compiling for Valgrind with main.c...$(RESET)"
-	$(CC) -g3 $(CFLAGS) -o exec main.c -L. -lft
-	if [ -z "$(FLAGS)" ]; then \
-		echo "$(PURPLE)Please define FLAGS (e.g., make valgrind FLAGS=1).$(RESET)"; \
-	elif [ "$(FLAGS)" -eq 1 ]; then \
-		valgrind --leak-check=full ./exec; \
-	elif [ "$(FLAGS)" -eq 2 ]; then \
-		valgrind --track-origins=yes ./exec; \
-	elif [ "$(FLAGS)" -eq 3 ]; then \
-		valgrind --tool=memcheck ./exec; \
-	else \
-		echo "$(RED)Invalid FLAGS value. Use 1, 2, or 3.$(RESET)"; \
-	fi; \
-	echo "$(RED)Cleaning up Valgrind executable...$(RESET)"; \
-	$(RM) exec
-	echo "$(GREEN)Valgrind execution completed!$(RESET)"
+CFSIGSEV = -fsanitize=address
 
+DIR_DUP= mkdir -p $(@D)
+
+AR = ar rcs
+
+MAKEFLAGS += --no-print-directory
+
+#------------------------------------------------------------------------------#
+# 							RULES											   #
+#------------------------------------------------------------------------------#
+
+all:$(NAME)
+
+-include $(DEPS)
+
+$(NAME): $(OBJS) $(INCS)
+	$(AR) $(NAME) $(OBJS)
+
+$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
+	@$(DIR_DUP)
+	$(CC) $(CFLAGS) -I$(INCS) -c $< -o $@
+
+fsanitize:
+	$(MAKE) CFLAGS="$(CFLAGS) $(CFSIGSEV)"
 
 clean:
-	$(RM_DIR) $(OBJS_DIR)
+	$(RM) $(OBJS_DIR)
 
-
-fclean: clean
+fclean:clean
 	$(RM) $(NAME)
+	rm -f a.out
 
+re:fclean all
 
-re : fclean all
-
-
-help:
-	echo "$(YELLOW)Available targets:$(RESET)"
-	echo " "
-	echo "$(GREEN)─────────────────────────────────────────────────"
-	echo " "
-	echo "$(GREEN)  all$(RESET)           - Compile the library and generate $(NAME)"
-	echo "$(GREEN)  clean$(RESET)         - Remove all object files and temporary build files"
-	echo "$(GREEN)  fclean$(RESET)        - Perform 'clean' and remove the $(NAME) archive"
-	echo "$(GREEN)  re$(RESET)            - Rebuild everything from scratch"
-	echo "$(GREEN)  main$(RESET)          - Compile and run the main program with $(NAME)"
-	echo "$(GREEN)  test$(RESET)          - Run basic tests on the compiled program"
-	echo "$(GREEN)  valgrind$(RESET)      - Run Valgrind with optional FLAGS for memory analysis"
-	echo " "
-	echo "   $(YELLOW).$(RESET) $(GREEN)FLAGS=1$(RESET) -> Leak check"
-	echo "   $(YELLOW).$(RESET) $(GREEN)FLAGS=2$(RESET) -> Track origins of errors"
-	echo "   $(YELLOW).$(RESET) $(GREEN)FLAGS=3$(RESET) -> Memcheck, a memory error detector"
-	echo " "
-	echo "$(GREEN)  docker-build$(RESET)  - Build a Docker image for the project"
-	echo "$(GREEN)  docker-run$(RESET)    - Run the project in a Docker container"
-	echo "$(GREEN)  docker-clean$(RESET)  - Remove the Docker image"
-	echo " "
-	echo "$(GREEN)─────────────────────────────────────────────────"
+.PHONY: all clean fclean re
