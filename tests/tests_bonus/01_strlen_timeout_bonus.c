@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_null_test.c                                     :+:      :+:    :+:   */
+/*   01_strlen_timeout_bonus.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 14:52:09 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/26 19:04:06 by tarini           ###   ########.fr       */
+/*   Created: 2025/01/26 16:33:13 by tarini            #+#    #+#             */
+/*   Updated: 2025/01/26 18:45:35 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "strdup_tests.h"
+#include "../incs_bonus/strlen_tests_bonus.h"
+#include "../../framework/incs/libft.h"
 
-int	ft_strdup_null_test(void)
+int	ft_strlen_timeout_test(void)
 {
-	char	*dest;
-
-	dest = ft_strdup(NULL);
-	if (dest == NULL)
-	{
+	if (ft_strlen_timeout("Hello") == 5)
 		return (0);
-	}
 	else
-	{
-		free(dest);
 		return (-1);
-	}
 }

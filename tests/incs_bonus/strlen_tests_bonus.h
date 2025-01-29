@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_null_test.c                                     :+:      :+:    :+:   */
+/*   strlen_tests_bonus.h                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 14:52:09 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/26 19:04:06 by tarini           ###   ########.fr       */
+/*   Created: 2025/01/26 16:35:20 by tarini            #+#    #+#             */
+/*   Updated: 2025/01/26 17:35:17 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "strdup_tests.h"
+#ifndef STRLEN_TESTS_BONUS_H
+# define STRLEN_TESTS_BONUS_H
 
-int	ft_strdup_null_test(void)
-{
-	char	*dest;
+# include <stdlib.h>
+# include "libft.h"
 
-	dest = ft_strdup(NULL);
-	if (dest == NULL)
-	{
-		return (0);
-	}
-	else
-	{
-		free(dest);
-		return (-1);
-	}
-}
+int	ft_strlen_timeout_test(void);
+int	ft_strlen_timeout(char *str);
+int	ft_sigabrt(void);
+int	ft_sigfpe(void);
+int	ft_sigpipe(void);
+int	ft_sigill(void);
+int	strlen_launcher_test_bonus(void);
+#endif

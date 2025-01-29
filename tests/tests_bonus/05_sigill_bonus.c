@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_null_test.c                                     :+:      :+:    :+:   */
+/*   05_sigill_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 14:52:09 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/26 19:04:06 by tarini           ###   ########.fr       */
+/*   Created: 2025/01/26 17:05:57 by tarini            #+#    #+#             */
+/*   Updated: 2025/01/26 19:04:07 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "strdup_tests.h"
+#include <signal.h>
 
-int	ft_strdup_null_test(void)
+int	ft_sigill(void)
 {
-	char	*dest;
-
-	dest = ft_strdup(NULL);
-	if (dest == NULL)
-	{
-		return (0);
-	}
-	else
-	{
-		free(dest);
-		return (-1);
-	}
+	return (raise(SIGILL));
 }

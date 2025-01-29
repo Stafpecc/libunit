@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_null_test.c                                     :+:      :+:    :+:   */
+/*   02_sigabort_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 14:52:09 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/26 19:04:06 by tarini           ###   ########.fr       */
+/*   Created: 2025/01/26 16:37:11 by tarini            #+#    #+#             */
+/*   Updated: 2025/01/26 18:46:11 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "strdup_tests.h"
+#include <signal.h>
 
-int	ft_strdup_null_test(void)
+int	ft_sigabrt(void)
 {
-	char	*dest;
-
-	dest = ft_strdup(NULL);
-	if (dest == NULL)
-	{
-		return (0);
-	}
-	else
-	{
-		free(dest);
-		return (-1);
-	}
+	return (raise(SIGABRT));
 }

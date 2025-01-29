@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   00_launcher.c                                      :+:      :+:    :+:   */
+/*   00_launcher_atoi_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 20:29:50 by anfichet          #+#    #+#             */
+/*   Created: 2025/01/26 18:01:07 by tarini            #+#    #+#             */
 /*   Updated: 2025/01/26 19:04:06 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
-#include "../incs/strlen_tests.h"
+#include "../incs_bonus/atoi_tests_bonus.h"
+#include "../../framework/incs_bonus/libunit_bonus.h"
 
-int	strlen_launcher_test(void)
+int	atoi_launcher_bonus(void)
 {
 	t_unit_test	*testlist;
 
 	testlist = NULL;
-	load_test(&testlist, "Basic test OK", "STRLEN", &ft_strlen_basic_test);
-	load_test(&testlist, "Error test KO", "STRLEN", &ft_strlen_ko_test);
-	load_test(&testlist, "Segfault test", "STRLEN", \
-				&ft_strlen_segfault_test);
-	load_test(&testlist, "Bus error test", "STRLEN", &ft_strlen_bus_test);
-	return (launch_test(&testlist));
+	load_test_bonus(&testlist, "Basic test", "ATOI", \
+			&ft_atoi_basic_test);
+	load_test_bonus(&testlist, "Empty test", "ATOI", \
+			&ft_atoi_negative_test);
+	load_test_bonus(&testlist, "Bigger string test", "ATOI", \
+			&ft_atoi_multiple_sign_test);
+	load_test_bonus(&testlist, "Only string test", "ATOI", \
+			&ft_atoi_only_string_test);
+	load_test_bonus(&testlist, "Null char in string test", "ATOI", \
+				&ft_atoi_int_min_test);
+	return (launch_test_bonus(&testlist));
 }
-
-	// load_test(&testlist, "Timeout test", "STRLEN", &ft_strlen_timeout_test);

@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_null_test.c                                     :+:      :+:    :+:   */
+/*   strdup_tests.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 14:52:09 by tarini            #+#    #+#             */
-/*   Updated: 2025/01/26 19:04:06 by tarini           ###   ########.fr       */
+/*   Created: 2025/01/25 19:40:42 by tarini            #+#    #+#             */
+/*   Updated: 2025/01/26 18:45:35 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "strdup_tests.h"
+#ifndef STRDUP_TESTS_H
+# define STRDUP_TESTS_H
 
-int	ft_strdup_null_test(void)
-{
-	char	*dest;
+# include "../../framework/incs/libunit.h"
+# include "libunit.h"
+# include "libft.h"
+# include <string.h>
 
-	dest = ft_strdup(NULL);
-	if (dest == NULL)
-	{
-		return (0);
-	}
-	else
-	{
-		free(dest);
-		return (-1);
-	}
-}
+int	strdup_launcher(void);
+int	ft_strdup_basic_test(void);
+int	ft_strdup_empty_test(void);
+int	ft_strdup_bigger_test(void);
+int	ft_strdup_one_char_test(void);
+int	ft_strdup_null_test(void);
+
+#endif

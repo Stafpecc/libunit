@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   00_launcher.c                                      :+:      :+:    :+:   */
+/*   libunit_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 20:29:50 by anfichet          #+#    #+#             */
+/*   Created: 2025/01/25 15:57:41 by anfichet          #+#    #+#             */
 /*   Updated: 2025/01/26 19:04:06 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
-#include "../incs/strlen_tests.h"
+#ifndef LIBUNIT_BONUS_H
+# define LIBUNIT_BONUS_H
 
-int	strlen_launcher_test(void)
+# include <stdlib.h>
+
+typedef struct s_unit_test
 {
-	t_unit_test	*testlist;
+	char				*name;
+	char				*function;
+	int					(*f)(void);
+	struct s_unit_test	*next;
+}	t_unit_test;
 
-	testlist = NULL;
-	load_test(&testlist, "Basic test OK", "STRLEN", &ft_strlen_basic_test);
-	load_test(&testlist, "Error test KO", "STRLEN", &ft_strlen_ko_test);
-	load_test(&testlist, "Segfault test", "STRLEN", \
-				&ft_strlen_segfault_test);
-	load_test(&testlist, "Bus error test", "STRLEN", &ft_strlen_bus_test);
-	return (launch_test(&testlist));
-}
+int		launch_test_bonus(t_unit_test **test);
+void	load_test_bonus(t_unit_test **test, char *name, \
+				char *func, int (*f)(void));
 
-	// load_test(&testlist, "Timeout test", "STRLEN", &ft_strlen_timeout_test);
+#endif

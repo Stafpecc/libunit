@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   05_one_char.c                                      :+:      :+:    :+:   */
+/*   00_launcher_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 15:04:17 by tarini            #+#    #+#             */
+/*   Created: 2025/01/26 16:33:16 by tarini            #+#    #+#             */
 /*   Updated: 2025/01/26 18:45:35 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "strdup_tests.h"
+#include "libunit_bonus.h"
+#include "../incs_bonus/strlen_tests_bonus.h"
 
-int	ft_strdup_one_char_test(void)
+int	strlen_launcher_test_bonus(void)
 {
-	char	*dest;
+	t_unit_test	*testlist;
 
-	dest = ft_strdup("0");
-	if (dest && ft_strcmp(dest, "0") == 0)
-	{
-		free(dest);
-		return (0);
-	}
-	else
-	{
-		if (!dest)
-			free(dest);
-		return (-1);
-	}
+	testlist = NULL;
+	load_test_bonus(&testlist, "Timeout test", "STRLEN", \
+				&ft_strlen_timeout_test);
+	load_test_bonus(&testlist, "Sigabort test", "SIGABORT", &ft_sigabrt);
+	load_test_bonus(&testlist, "Sigfpe test", "SIGFPE", &ft_sigfpe);
+	load_test_bonus(&testlist, "Sigpipe test", "SIGPIPE", &ft_sigpipe);
+	load_test_bonus(&testlist, "Sigill test", "SIGILL", &ft_sigill);
+	return (launch_test_bonus(&testlist));
 }

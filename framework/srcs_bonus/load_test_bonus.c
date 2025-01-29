@@ -1,29 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   00_launcher.c                                      :+:      :+:    :+:   */
+/*   load_test_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tarini <tarini@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/25 20:29:50 by anfichet          #+#    #+#             */
+/*   Created: 2025/01/25 19:25:49 by tarini            #+#    #+#             */
 /*   Updated: 2025/01/26 19:04:06 by tarini           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.h"
-#include "../incs/strlen_tests.h"
+#include "../incs_bonus/libunit_bonus.h"
 
-int	strlen_launcher_test(void)
+void	load_test_bonus(t_unit_test **test, char *name, char *func, \
+		int (*f)(void))
 {
-	t_unit_test	*testlist;
+	t_unit_test	*cpy;
+	t_unit_test	*new;
 
-	testlist = NULL;
-	load_test(&testlist, "Basic test OK", "STRLEN", &ft_strlen_basic_test);
-	load_test(&testlist, "Error test KO", "STRLEN", &ft_strlen_ko_test);
-	load_test(&testlist, "Segfault test", "STRLEN", \
-				&ft_strlen_segfault_test);
-	load_test(&testlist, "Bus error test", "STRLEN", &ft_strlen_bus_test);
-	return (launch_test(&testlist));
+	new = malloc(sizeof(t_unit_test));
+	if (new == NULL)
+		return ;
+	if (*test == NULL)
+	{
+		new->name = name;
+		new->function = func;
+		new->f = f;
+		new->next = NULL;
+		*test = new;
+		return ;
+	}
+	cpy = *test;
+	while (cpy->next != NULL)
+		cpy = cpy->next;
+	new->name = name;
+	new->function = func;
+	new->f = f;
+	new->next = NULL;
+	cpy->next = new;
 }
-
-	// load_test(&testlist, "Timeout test", "STRLEN", &ft_strlen_timeout_test);
